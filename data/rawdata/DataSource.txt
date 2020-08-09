@@ -1,8 +1,0 @@
-Pennsylvania county shapefile comes from:
-The Pennsylvania Geospatial Data Clearinghouse
-https://www.pasda.psu.edu/uci/DataSummary.aspx?dataset=24
-
-Pennsylvania rails lines come from:
-The Pennsylvania Geospatial Data Clearinghouse
-http://www.pasda.psu.edu/uci/DataSummary.aspx?dataset=48
-
