@@ -1,0 +1,1 @@
+PROJCS["Pennsylvania_Polyconic",GEOGCS["GCS_North_American_1983",DATUM["D_NAD 83",SPHEROID["GRS_80",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Polyconic"],PARAMETER["central_meridian",-77.75],PARAMETER["latitude_of_origin",40.925],UNIT["Meter",1]]
