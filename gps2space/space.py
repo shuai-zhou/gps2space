@@ -45,8 +45,8 @@ def convex_space(gdf, group='week', proj=2163):
 	"""
 	groups = gdf.groupby(group)
 	convex = groups.geometry.apply(lambda x: x.unary_union.convex_hull)
-	convex = gpd.GeoDataFrame(convex.reset_index(), crs=("epsg:4326"))
-	convex = convex.to_crs(epsg=proj)
+	convex = gpd.GeoDataFrame(convex.reset_index())
+	convex = convex.set_crs(epsg=proj)
 	convex['convx_area'] = convex['geometry'].area
 	return convex
 
