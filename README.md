@@ -1,2 +1,2 @@
 # GPS2space
-GitHub repository for GPS2space, a Python library for building spatial data and activity space from raw GPS data.
+A Python library for building spatial data and calculating buffer- and Convex hull-based activity space from raw GPS data.
