@@ -32,28 +32,34 @@ def buffer_space(gdf, dist=0, dissolve='week', proj=2163):
 # activity space based on convex
 def convex_space(gdf, group='week', proj=2163):
 	"""
-	Perform activity space based on convex method.
+	Perform activity space based on convex hull method.
 
 	Parameters
 	==========
 	gdf: GeoDataFrame
-	dissolve: level of aggregating points to form polygon
+	group: level of aggregating points to form polygon
 
 	Returns
 	=======
 	gdf: Polygon GeoDataFrame (user-defined projection)
 	"""
+	# Make a separate DataFrame from gdf, but remove geometry column
+	# And drop duplicates in terms of the "group" parameter
+	df_temp = gdf.drop('geometry', 1)
+	# print(df_temp.head())
+	df = df_temp.drop_duplicates(group)
+
+	# Obtain the convex hull activity space
+	gdf = gdf.to_crs(epsg=proj)
 	groups = gdf.groupby(group)
 	convex = groups.geometry.apply(lambda x: x.unary_union.convex_hull)
 	convex = gpd.GeoDataFrame(convex.reset_index())
-	convex = convex.set_crs(epsg=proj)
-	convex['convx_area'] = convex['geometry'].area
+	convex['convex_area'] = convex['geometry'].area
+
+	# Merge convex with gdf_temp on group to get the columns from original gdf
+	convex = convex.merge(df, on=group)
+
 	return convex
 
 # activity space based on concave
-
-
-
-
-
 
