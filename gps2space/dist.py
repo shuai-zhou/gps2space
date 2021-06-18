@@ -88,15 +88,15 @@ def dist_to_poly(gdf_source, gdf_target, proj=2163, search_radius=None):
 
     # If SEARCH_RADIUS is not specified, iterate over all the features
 	if not search_radius:
-		print("No search_radius is specified, the calculation may take longer time for datasets in large volumes.")
+		print("No search radius is specified, the calculation may take longer time for datasets in large volumes.")
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: gdf_target.distance(x).min())
 
     # If SEARCH_RADIUS is specified, keep those only within SEARCH_RADIUS, otherwise, make NaN
 	else:
-		print("A search_radius of " + str(search_radius) + 
+		print("A search radius of " + str(search_radius) + 
 		      " meters is specified. Points with no neighbors intersected " +
-		      "with thte search radius will return NaN.")
+		      "with the search radius will return NaN.")
 		spatial_index = gdf_target.sindex
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: closest_poly(x, gdf_target, spatial_index, search_radius))
