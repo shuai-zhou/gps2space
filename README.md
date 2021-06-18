@@ -1,7 +1,7 @@
 # GPS2space 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4672650.svg)](https://doi.org/10.5281/zenodo.4672650)
 
-A Python library for building spatial data and calculating buffer- and Convex hull-based activity space from raw GPS data.
+A Python library for building spatial data and extracting spatial measures from raw GPS data.
 
 ## [Documentation](https://gps2space.readthedocs.io/en/latest/)
 
