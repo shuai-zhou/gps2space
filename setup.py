@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='gps2space',
-      version='0.2.1',
+      version='0.3.1',
       description='Toolbox for building spatial data and activity space and shared space from raw GPS data',
       url='https://github.com/shuai-zhou/gps2space',
       author='Shuai Zhou',
