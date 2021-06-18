@@ -3,7 +3,6 @@
 A module to measure the nearest distance from point to point and polygon
 
 """
-import warnings
 import itertools
 import numpy as np
 import pandas as pd
@@ -89,16 +88,14 @@ def dist_to_poly(gdf_source, gdf_target, proj=2163, search_radius=None):
 
     # If SEARCH_RADIUS is not specified, iterate over all the features
 	if not search_radius:
-		warnings.warn("No search_radius is specified, the calculation may "
-			"take longer time for datasets in large volumes...", stacklevel=1)
+		print("No search_radius is specified, the calculation may take longer time for datasets in large volumes...")
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: gdf_target.distance(x).min())
 
     # If SEARCH_RADIUS is specified, keep those only within SEARCH_RADIUS, otherwise, make NaN
 	else:
-		warnings.warn("A search_radius of " + str(search_radius) +
-			" meters is specified. Point with no neighbors within " +
-			str(search_radius) + " meters will return NaN", stacklevel=1)
+		print("A search_radius of " + str(search_radius) + " meters is specified. Point with no neighbors within " +
+			str(search_radius) + " meters will return NaN")
 		spatial_index = gdf_target.sindex
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: closest_poly(x, gdf_target, spatial_index, search_radius))
