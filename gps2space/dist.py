@@ -90,7 +90,7 @@ def dist_to_poly(gdf_source, gdf_target, proj=2163, search_radius=None):
     # If SEARCH_RADIUS is not specified, iterate over all the features
 	if not search_radius:
 		warnings.warn("No search_radius is specified, the calculation may "
-			"take longer time for datasets in large volumes...", stacklevel=2)
+			"take longer time for datasets in large volumes...", stacklevel=1)
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: gdf_target.distance(x).min())
 
@@ -98,7 +98,7 @@ def dist_to_poly(gdf_source, gdf_target, proj=2163, search_radius=None):
 	else:
 		warnings.warn("A search_radius of " + str(search_radius) +
 			" meters is specified. Point with no neighbors within " +
-			str(search_radius) + " meters will return NaN", stacklevel=2)
+			str(search_radius) + " meters will return NaN", stacklevel=1)
 		spatial_index = gdf_target.sindex
 		gdf_dist['dist2poly'] = gdf_source.geometry.apply(
 			lambda x: closest_poly(x, gdf_target, spatial_index, search_radius))
