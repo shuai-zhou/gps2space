@@ -1,5 +1,5 @@
 # GPS2space 
-[![DOI](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/DOI_logo.svg/130px-DOI_logo.svg.png)] https://doi.org/10.35566/jbds/v1n2/p5
+[![DOI]https://doi.org/10.35566/jbds/v1n2/p5
 
 A Python library for building spatial data and extracting spatial measures from raw GPS data.
 
